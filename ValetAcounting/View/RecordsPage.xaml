@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage x:Class="ValetAcounting.View.RecordsPage"
+             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:model="clr-namespace:ValetAcounting.Model"
+             xmlns:viewmodel="clr-namespace:ValetAcounting.ViewModel"
+             x:DataType="viewmodel:RecordsViewModel"
+             Title="{Binding Title}">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="AddButton"
+                     Text="Add Item ++"
+                     Clicked="ToolbarItem_Clicked"></ToolbarItem>
+    </ContentPage.ToolbarItems>
+    <Grid x:Name="MainGrid"
+          RowDefinitions="50,400,*"
+          IsVisible="false">
+        <Label Grid.Row="0"
+               Text="All Fields Must Be Filled"
+               VerticalOptions="Center"
+               HorizontalOptions="Center"
+               FontSize="Title"
+               TextColor="Red" />
+        <Grid Grid.Row="1"
+              ColumnDefinitions="*,*"
+              RowDefinitions="100,100,100,100">
+            <VerticalStackLayout Grid.Row="0"
+                                 Grid.Column="0">
+                <Label Text="Workers"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Center"
+                       FontSize="Medium" />
+                <Frame WidthRequest="150"
+                       HeightRequest="50"
+                       Padding="0">
+                    <Entry x:Name="CarSumEntry"
+                           Text="{Binding Workers}"
+                           Keyboard="Numeric"
+                           BackgroundColor="LightCoral"
+                           HorizontalTextAlignment="Center"
+                           TextChanged="Entry_TextChanged"
+                           HorizontalOptions="Fill"
+                           VerticalOptions="Fill" />
+                </Frame>
+            </VerticalStackLayout>
+            <VerticalStackLayout Grid.Row="0"
+                                 Grid.Column="1">
+                <Label Text="Income"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Center"
+                       FontSize="Medium" />
+                <Frame WidthRequest="150"
+                       HeightRequest="50"
+                       Padding="0">
+                    <Entry x:Name="IncomeEntry"
+                           Text="{Binding Income}"
+                           Keyboard="Numeric"
+                           BackgroundColor="LightCoral"
+                           WidthRequest="150"
+                           HorizontalTextAlignment="Center"
+                           TextChanged="Entry_TextChanged"
+                           HorizontalOptions="Fill"
+                           VerticalOptions="Fill" />
+                </Frame>
+            </VerticalStackLayout>
+            <VerticalStackLayout Grid.Row="1"
+                                 Grid.Column="0">
+                <Label Text="Expenses"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Center"
+                       FontSize="Medium" />
+                <Frame WidthRequest="150"
+                       HeightRequest="50"
+                       Padding="0">
+                    <Entry x:Name="DailyExpEntry"
+                           Text="{Binding DailyExp}"
+                           Keyboard="Numeric"
+                           BackgroundColor="LightCoral"
+                           WidthRequest="150"
+                           HorizontalTextAlignment="Center"
+                           TextChanged="Entry_TextChanged"
+                           HorizontalOptions="Fill"
+                           VerticalOptions="Fill" />
+                </Frame>
+            </VerticalStackLayout>
+            <VerticalStackLayout Grid.Row="1"
+                                 Grid.Column="1">
+                <Label Text="Tips"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Center"
+                       FontSize="Medium" />
+                <Frame WidthRequest="150"
+                       HeightRequest="50"
+                       Padding="0">
+                    <Entry x:Name="TipEntry"
+                           Text="{Binding Tip}"
+                           Keyboard="Numeric"
+                           BackgroundColor="LightCoral"
+                           WidthRequest="150"
+                           HorizontalTextAlignment="Center"
+                           TextChanged="Entry_TextChanged"
+                           HorizontalOptions="Fill"
+                           VerticalOptions="Fill" />
+                </Frame>
+            </VerticalStackLayout>
+            <VerticalStackLayout Grid.Row="2"
+                                 Grid.Column="0">
+                <Label Text="Net"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Center"
+                       FontSize="Medium" />
+                <Frame WidthRequest="150"
+                       HeightRequest="50"
+                       Padding="0">
+                    <Entry x:Name="DailyNetEntry"
+                           Text="{Binding DailyNet}"
+                           Keyboard="Numeric"
+                           BackgroundColor="LightCoral"
+                           WidthRequest="150"
+                           HorizontalTextAlignment="Center"
+                           TextChanged="Entry_TextChanged"
+                           HorizontalOptions="Fill"
+                           VerticalOptions="Fill" />
+                </Frame>
+            </VerticalStackLayout>
+            <VerticalStackLayout Grid.Row="2"
+                                 Grid.Column="1">
+                <Label Text="Date"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Center"
+                       FontSize="Medium" />
+                <Frame WidthRequest="150"
+                       HeightRequest="50"
+                       Padding="0">
+                    <DatePicker x:Name="DateEntry"
+                                WidthRequest="150"
+                                BackgroundColor="LightCoral"
+                                Date="{Binding Date}"
+                                MinimumDate="{Binding MinDate}"
+                                MaximumDate="{Binding MaxDate}"
+                                HorizontalOptions="CenterAndExpand"
+                                VerticalOptions="Fill" />
+                </Frame>
+            </VerticalStackLayout>
+            <VerticalStackLayout Grid.Row="3"
+                                 Grid.ColumnSpan="2">
+                <Button x:Name="SendButton"
+                        Text="SEND"
+                        FontSize="Title"
+                        Command="{Binding SendRecordCommand}"
+                        WidthRequest="100"
+                        HeightRequest="60"
+                        IsEnabled="{Binding IsDeliverable,Mode=TwoWay}"
+                        Clicked="SendButton_Clicked" />
+            </VerticalStackLayout>
+        </Grid>
+        <VerticalStackLayout Grid.Row="2">
+            <Label x:Name="UserEmail"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Center" />
+            <Label x:Name="DisplayName"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Center"
+                   Text="{Binding DisplayName,Mode=TwoWay}"/>
+        </VerticalStackLayout>
+    </Grid>
+</ContentPage>
