@@ -41,10 +41,12 @@ namespace ValetAcounting.ViewModel
             this.Title = "Records";
             fireBaseService = new FireBaseService(Records);
             this.connectivity = connectivity;
-            MinDate = new DateTime(Date.Year, Date.Month, Date.Day - 1);
+           
             MaxDate = new DateTime(Date.Year, Date.Month, Date.Day);
+            MinDate = maxDate.AddDays(-1);
+
         }
-        
+
         [RelayCommand]
         async Task SendRecordAsync()
         {
