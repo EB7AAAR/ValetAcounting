@@ -82,9 +82,8 @@
 </PropertyGroup>
 <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net7.0-ios|AnyCPU'">
   <CreatePackage>false</CreatePackage>
-  <CodesignProvision>ValetAccounting</CodesignProvision>
+  <CodesignProvision>Automatic</CodesignProvision>
   <CodesignKey>Apple Distribution: Meyri Manjerian (PL2T9JM6BY)</CodesignKey>
 </PropertyGroup>
-
 
 </Project>
