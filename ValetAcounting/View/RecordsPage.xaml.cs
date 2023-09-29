@@ -30,6 +30,12 @@ public partial class RecordsPage : ContentPage
 
     private void Entry_TextChanged(object sender, TextChangedEventArgs e)
     {
+        if (!String.IsNullOrEmpty(IncomeEntry.Text) &&
+           !String.IsNullOrEmpty(DailyExpEntry.Text))
+        {
+            DailyNetEntry.Text = (Convert.ToDouble(IncomeEntry.Text) - Convert.ToDouble(DailyExpEntry.Text)).ToString();
+        }
+
         if (String.IsNullOrEmpty(CarSumEntry.Text) ||
            String.IsNullOrEmpty(IncomeEntry.Text) ||
            String.IsNullOrEmpty(DailyExpEntry.Text) ||

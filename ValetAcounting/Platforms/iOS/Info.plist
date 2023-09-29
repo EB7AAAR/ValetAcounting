@@ -31,5 +31,7 @@
 	<string>com.valetaccounting.abuomar</string>
 	<key>CFBundleDisplayName</key>
 	<string>ValetAccounting</string>
+	<key>CFBundleShortVersionString</key>
+	<string>2</string>
 </dict>
 </plist>

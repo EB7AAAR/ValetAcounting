@@ -79,6 +79,7 @@ namespace ValetAcounting.ViewModel
                 Income = Convert.ToDouble(Income),
                 Workers = Convert.ToInt32(Workers),
                 DailyExp = Convert.ToDouble(DailyExp),
+                //DailyNet = Convert.ToDouble(DailyNet),
                 DailyNet = Convert.ToDouble(DailyNet),
                 Tip = Convert.ToDouble(Tip)
             };
