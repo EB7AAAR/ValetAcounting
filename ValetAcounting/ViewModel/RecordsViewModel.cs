@@ -43,7 +43,7 @@ namespace ValetAcounting.ViewModel
             this.connectivity = connectivity;
            
             MaxDate = new DateTime(Date.Year, Date.Month, Date.Day);
-            MinDate = maxDate.AddDays(-1);
+            MinDate = maxDate.AddDays(-31);
 
         }
 
